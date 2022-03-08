@@ -1,0 +1,18 @@
+html{
+    background-color: #dfe4ea;
+}
+
+@media (min-width: 801px){
+    #root{
+        margin: 0 auto;
+        width: 25rem;
+    }
+
+    body{
+        padding-right: 0 !important;
+        width: 25rem;
+        position: absolute;
+        left:50%;
+        transform: translateX(-50%);
+    }
+}

@@ -1,0 +1,59 @@
+@import './vars';
+
+// COLOR CLASS
+
+.primaryColor {
+  color: $white !important;
+}
+
+.secondaryColor {
+  color: $black;
+}
+
+// FONT_SIZE_CLASS
+
+.font_12 {
+  font-size: 12px;
+}
+
+.font_14 {
+  font-size: 14px;
+}
+
+.font_16 {
+  font-size: 16px !important;
+}
+
+.font_18 {
+  font-size: 18px;
+}
+
+.font_20 {
+  font-size: 20px !important;
+}
+
+.font_22 {
+  font-size: 22px !important;
+}
+
+.font_24 {
+  font-size: 24px !important;
+}
+
+// FONT_WEIGHT_CLASS
+
+.fontWeight500 {
+  font-weight: 500 !important;
+}
+
+.fontWeight600 {
+  font-weight: 600 !important;
+}
+
+.fade {
+  opacity: 0.6;
+}
+
+.cursorPointer {
+  cursor: pointer !important;
+}
