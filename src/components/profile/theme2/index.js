@@ -45,21 +45,25 @@ const Theme2 = ({id, data, ...props}) => {
                     <div className={classNames("my-5")}>
                         <div className="row justify-content-center">
                         {
-                            (data?.SocialLinks && Array.isArray(data.SocialLinks) && ((data.SocialLinks).length > 0) ) &&
+                            (data?.SocialLinks && data.isActive == true && Array.isArray(data.SocialLinks) && ((data.SocialLinks).length > 0) ) &&
                                 data?.SocialLinks.slice(0,3).map((item) => {
-                                    return(
-                                        <div className="col-auto">
-                                            <a href={`https://${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>  
-                                                <div className={classNames(c.socialIcons)}>
-                                                    <div className={classNames(c.socialIconsOuter)}> 
-                                                        <div className={classNames(c.socialIcon)}>
-                                                            <img className={classNames(c.socialImage)} src={`${API_URLS.blackAssets}${item?.Name}.svg`} alt={item?.Name}/>
+                                    if (item.isActive == true) {
+                                        return(
+                                            <div className="col-auto">
+                                                <a href={`https://${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>  
+                                                    <div className={classNames(c.socialIcons)}>
+                                                        <div className={classNames(c.socialIconsOuter)}> 
+                                                            <div className={classNames(c.socialIcon)}>
+                                                                <img className={classNames(c.socialImage)} src={`${API_URLS.blackAssets}${item?.Name}.svg`} alt={item?.Name}/>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    )
+                                                </a>
+                                            </div>
+                                        )
+                                    } else {
+                                        return (<div />)
+                                    }
                                 })
                         }
                         </div>

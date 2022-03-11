@@ -28,27 +28,25 @@ const Theme1 = ({id, data, ...props}) => {
                     </div>
                 </div>
 
+                
                 {
                     (data?.SocialLinks && Array.isArray(data.SocialLinks) && (data.SocialLinks).length > 0 ) &&
                      <div className={c.boxSocialContainer}>
                         {
                             (data.SocialLinks).map((item)=>{
-                                return(
-                                    
+                                if (item.isActive === true) { 
+                                    return (
                                         <center className={classNames("mt-1")} key={item?.Order}>
                                             <a href={`https://${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>
                                                 <img className={classNames(c.socialImage)} src={`${API_URLS.whiteAssets}${item?.Name}.svg`} alt={item?.Name}/>
                                             </a>
-        
-                                        </center>
-                                )
+                                        </center>) }
+                                else {
+                                    return(
+                                        <div />      
+                                    )}
                             })
                         }
-                        <center className={classNames("mt-1")} >
-                            <a href="tel:9510816858" target="_blank" rel="noopener noreferrer" className={c.anchor}>
-                                <img className={classNames(c.socialImage)} src={require("../../../assets/images/contact.png")} />
-                            </a>
-                        </center>
                     </div>
                 }
 
