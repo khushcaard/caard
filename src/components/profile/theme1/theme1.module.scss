@@ -1,16 +1,17 @@
 @import './../../../assets/main';
-@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    .filter {
-      -webkit-backdrop-filter: blur(5px);
-      backdrop-filter: brightness(70%);
-    }
-  }
+@font-face {
+    font-family: 'Open-Sans';
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+}
+
+@font-face {
+    font-family: 'Gloria';
+    src: url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+}
 
 .theme1{
     background: $white;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    min-height: 100vh;
 }
 
 .profileBgContainer{
@@ -25,21 +26,21 @@
 
 .profileImage{
     position: absolute;
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height: 80px;
     top: 113px;
-    margin-left: -32px;
+    margin-left: -38px;
     border: 2px solid $white;
     background: $white;
 }
 
 .profileName{
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 18px;
     line-height: 25px;
-    color: #FFF;
-    margin-top: 43px;
+    color: $Nero;
+    margin-top: 60px;
 }
 
 .cityText{
@@ -47,7 +48,7 @@
     font-weight: 450;
     font-size: 14px;
     line-height: 19px;
-    color: #FFF;
+    color: $Matterhorn;
     margin-top: 2px;
 }
 
@@ -61,7 +62,7 @@
     box-sizing: border-box;
     border-radius: 12px;
     padding: 10px;
-    word-break: break-all;
+    word-break: keep-all;
 
     .text{
         font-style: normal;
@@ -69,18 +70,17 @@
         font-size: 14px;
         line-height: 19px;
         text-align: center;
-        color: #FFF
+        color: $Matterhorn
     }
 }
 
 .boxSocialContainer{
-    margin-top:20px;
+    margin-top:30px;
 }
 
 .bottomApp{
-    margin-top: 16ch;
-    vertical-align: bottom;
-    
+    margin-top:30px;
+
     .text{
         font-style: normal;
         font-weight: normal;
@@ -88,7 +88,6 @@
         line-height: 16px;
         text-align: center;
         padding: 4px 0px 10px 0px;
-        color: #FFF;
     }
 }
 
@@ -107,6 +106,7 @@
     object-fit: cover;
     background-repeat: no-repeat;
     z-index: 998;
+
     
     .icon{
         position: absolute;
