@@ -114,6 +114,15 @@
     }
 }
 
+.sBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    .sBoxChild {
+        margin-right: 0px;
+    }
+}
+
 .socialIcons{
     position: relative;
     width: 64px;

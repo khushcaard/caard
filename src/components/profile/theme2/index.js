@@ -43,31 +43,32 @@ const Theme2 = ({id, data, ...props}) => {
                     </div>
 
                     <div className={classNames("my-5")}>
-                        <div className="row justify-content-center">
-                        {
-                            (data?.SocialLinks && data.isActive == true && Array.isArray(data.SocialLinks) && ((data.SocialLinks).length > 0) ) &&
-                                data?.SocialLinks.slice(0,3).map((item) => {
-                                    if (item.isActive == true) {
-                                        return(
-                                            <div className="col-auto">
-                                                <a href={`https://${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>  
-                                                    <div className={classNames(c.socialIcons)}>
-                                                        <div className={classNames(c.socialIconsOuter)}> 
-                                                            <div className={classNames(c.socialIcon)}>
-                                                                <img className={classNames(c.socialImage)} src={`${API_URLS.blackAssets}${item?.Name}.svg`} alt={item?.Name}/>
-                                                            </div>
+                    <div className={classNames(c.sBox)}>
+                    {
+                        (data?.SocialLinks && Array.isArray(data.SocialLinks) && ((data.SocialLinks).length > 0) ) &&
+                            data?.SocialLinks.slice(0,3).map((item) => {
+                                if(item.isActive == true) {
+                                    return(
+                                        <div className={classNames(c.sBoxChild)}>
+                                            <a href={`https://${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>  
+                                                <div className={classNames(c.socialIcons)}>
+                                                    <div className={classNames(c.socialIconsOuter)}> 
+                                                        <div className={classNames(c.socialIcon)}>
+                                                            <img className={classNames(c.socialImage)} src={`${API_URLS.blackAssets}${item?.Name}.svg`} alt={item?.Name}/>
                                                         </div>
                                                     </div>
-                                                </a>
-                                            </div>
-                                        )
-                                    } else {
-                                        return (<div />)
-                                    }
-                                })
-                        }
-                        </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    )
+                                } else {
+                                    return (<div></div>)
+                                }
+                            })
+                    }
                     </div>
+                </div>
+                    
                     {
                         data?.FeaturedVideo &&
                         <div>
@@ -100,18 +101,22 @@ const Theme2 = ({id, data, ...props}) => {
                         <div className="row justify-content-center mt-3">
                             {
                                 data.SocialLinks.slice(3).map((item)=>{
-                                    return(
-                                        <div key={item?.Name} className={classNames(c.cursorPointer,"col-auto mt-4")}>
-                                            <a href={`https://${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>  
-                                                <div className={classNames(c.circleIcon)}>
-                                                    <div className={classNames(c.centerIcon)}>
-                                                        <img className={classNames(c.socialImage)} src={`${API_URLS.blackAssets}${item?.Name}.svg`} alt={item?.Name}/>
+                                    if (item.isActive == true) {
+                                        return (
+                                            <div key={item?.Name} className={classNames(c.cursorPointer,"col-auto mt-4")}>
+                                                <a href={`https://${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>  
+                                                    <div className={classNames(c.circleIcon)}>
+                                                        <div className={classNames(c.centerIcon)}>
+                                                            <img className={classNames(c.socialImage)} src={`${API_URLS.blackAssets}${item?.Name}.svg`} alt={item?.Name}/>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div className={classNames(c.circleIconText, "text-white mt-2 text-center")}>{item?.Name}</div>
-                                            </a>    
-                                        </div>
-                                    )
+                                                    <div className={classNames(c.circleIconText, "text-white mt-2 text-center")}>{item?.Name}</div>
+                                                </a>    
+                                            </div>
+                                        )
+                                    } else {
+                                        return (<div></div>)
+                                    }
                                 })
                             }
                         </div>
