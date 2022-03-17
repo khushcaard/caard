@@ -62,7 +62,7 @@ const Theme2 = ({id, data, ...props}) => {
                                         </div>
                                     )
                                 } else {
-                                    return (<div></div>)
+                                    return null
                                 }
                             })
                     }
