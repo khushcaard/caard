@@ -8,9 +8,10 @@ import {API_URLS} from "../../../config/api_urls/api_urls";
 
 const Theme1 = ({id, data, ...props}) => {
     const [play, setPlay] = useState(false)
-    const videoId = data.FeaturedVideo.split("?v=")[1];
-    const thumb = "https://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg"
     
+    const videoId = (data.FeaturedVideo ? data.FeaturedVideo.split("?v=")[1] : "testtest") //data.FeaturedVideo.split("?v=")[1];
+    const thumb = "https://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg"
+   
     return(
         <div className={classNames(c.theme1)}>
             <div className={classNames(c.profileBgContainer)}>
@@ -51,7 +52,7 @@ const Theme1 = ({id, data, ...props}) => {
                 }
 
                 {
-                    data?.FeaturedVideo &&
+                    data.FeaturedVideo ? (
                     <div className="my-5">
                         {
                             play ?
@@ -70,7 +71,7 @@ const Theme1 = ({id, data, ...props}) => {
                                 </div>                    
                             </div>
                         }
-                    </div>
+                    </div> ) : (null)
                 }
 
             <div className={classNames(c.bottomApp)}>

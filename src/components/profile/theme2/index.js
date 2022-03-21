@@ -10,9 +10,9 @@ const Theme2 = ({id, data, ...props}) => {
     const [play, setPlay] = useState(false)
     const [url, setUrl] = useState("https://media.istockphoto.com/photos/dotted-grid-paper-background-texture-seamless-repeat-pattern-picture-id1320330053?b=1&k=20&m=1320330053&s=170667a&w=0&h=XisfN35UnuxAVP_sjq3ujbFDyWPurSfSTYd-Ll09Ncc=")
 
-    const videoId = data.FeaturedVideo.split("?v=")[1];
+    const videoId = (data.FeaturedVideo ? data.FeaturedVideo.split("?v=")[1] : "testtest") //data.FeaturedVideo.split("?v=")[1];
     const thumb = "https://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg"
-    
+   
     return(
         <div 
         /*style={{backgroundImage: 'url(' + require("../../../assets/images/player.png")+')'}}*/ className={classNames(c.theme2)}>
@@ -87,8 +87,8 @@ const Theme2 = ({id, data, ...props}) => {
                     </div>
                 </div>
                     {
-                        data.FeaturedVideo.length >= 0 ? (
-                            <div>
+                        data.FeaturedVideo ? (
+                        <div>
                         {
                             play ?
                                 <CardMedia component="iframe" allow="autoplay" allowFullScreen="allowfullscreen" className={classNames(c.videoPlayer)} 
