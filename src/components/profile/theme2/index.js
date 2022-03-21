@@ -44,8 +44,7 @@ const Theme2 = ({id, data, ...props}) => {
 
                     <div className={classNames("my-5")}>
                     <div className={classNames(c.sBox)}>
-                    {
-                        (data?.SocialLinks && Array.isArray(data.SocialLinks) && ((data.SocialLinks).length > 0) ) &&
+                    {data.DirectLink == true ? (data?.SocialLinks && Array.isArray(data.SocialLinks) && ((data.SocialLinks).length > 0) ) &&
                             data?.SocialLinks.slice(0,3).map((item) => {
                                 if(item.isActive == true) {
                                     return(
@@ -64,14 +63,32 @@ const Theme2 = ({id, data, ...props}) => {
                                 } else {
                                     return null
                                 }
+                            }) : (data?.SocialLinks && Array.isArray(data.SocialLinks) && ((data.SocialLinks).length > 0) ) &&
+                            data?.SocialLinks.slice(0,3).map((item) => {
+                                if(item.isActive == true) {
+                                    return(
+                                        <div className={classNames(c.sBoxChild)}>
+                                            <a href={window.location.href} target="_blank" rel="noopener noreferrer" className={c.anchor}>  
+                                                <div className={classNames(c.socialIcons)}>
+                                                    <div className={classNames(c.socialIconsOuter)}> 
+                                                        <div className={classNames(c.socialIcon)}>
+                                                            <img className={classNames(c.socialImage)} src={`${API_URLS.blackAssets}${item?.Name}.svg`} alt={item?.Name}/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    )
+                                } else {
+                                    return null
+                                }
                             })
                     }
                     </div>
                 </div>
-                    
                     {
-                        data?.FeaturedVideo &&
-                        <div>
+                        data.FeaturedVideo.length >= 0 ? (
+                            <div>
                         {
                             play ?
                                 <CardMedia component="iframe" allow="autoplay" allowFullScreen="allowfullscreen" className={classNames(c.videoPlayer)} 
@@ -94,6 +111,7 @@ const Theme2 = ({id, data, ...props}) => {
                                 </div>
                         }
                         </div>
+                        ) : (null)
                     }
 
                     {
