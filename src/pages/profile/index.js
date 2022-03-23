@@ -5,6 +5,7 @@ import axios from 'axios';
 import c from './profile.module.scss';
 import classNames from 'classnames';
 import {parseToJson, GetSortOrder} from '../../helper/theme';
+import Loading from '../../components/loading';
 
 const Profile = () => {
     const { id } = useParams();
@@ -39,7 +40,11 @@ const Profile = () => {
     }
     else{
         return(
-            <div className={classNames(c.loader)}><div className={classNames("align-center")}>Loading...</div></div>
+            <div className={classNames(c.loader)}>
+                <div className={classNames("align-center")}>
+                    <Loading />
+                </div>
+            </div>
         )
     }
 }   

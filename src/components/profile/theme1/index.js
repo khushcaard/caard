@@ -5,6 +5,7 @@ import {AppIcon, YoutubeIcon} from '../../shared/svg';
 import CardMedia from '@mui/material/CardMedia';
 import {videoURL} from '../../../helper/theme';
 import {API_URLS} from "../../../config/api_urls/api_urls";
+import { Link } from 'react-router-dom';
 
 const Theme1 = ({id, data, ...props}) => {
     const [play, setPlay] = useState(false)
@@ -77,7 +78,7 @@ const Theme1 = ({id, data, ...props}) => {
 
             <div className={classNames(c.bottomApp)}>
                 <center><AppIcon/></center>
-                <center><div className={classNames(c.text)}>Developed by Caard©</div></center>
+                <center><div className={classNames(c.text)}>Powered by Caard</div></center>
             </div>
             
             </div>

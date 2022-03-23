@@ -141,7 +141,7 @@ const Theme2 = ({id, data, ...props}) => {
                     }
                     <div className={classNames(c.bottomApp)}>
                         <center><AppIconDark/></center>
-                        <center><div className={classNames(c.text)}>Developed by Caard©</div></center>
+                        <center><div className={classNames(c.text)}>Powered by Caard</div></center>
                     </div>
                 </div>
             </div>
