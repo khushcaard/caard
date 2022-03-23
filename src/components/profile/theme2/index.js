@@ -20,9 +20,9 @@ const Theme2 = ({id, data, ...props}) => {
                 <div className={classNames(c.boxImage)}>
                     {
                         data?.PersonalInfo?.CoverImageLocation ?
-                        <div className={classNames(c.profileBgImage)}></div>
+                        <div className={classNames(c.profileBgImage)} style={{backgroundImage: 'url(' + `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` +')'}}></div>
                         :
-                        <div className={classNames(c.profileBgImage)}></div>
+                        <div className={classNames(c.profileBgImage)} style={{backgroundImage: 'url(' + require("../../../assets/images/BackgroundDark.jpeg")+')'}}></div>
                     }
                 </div>
                 <center>

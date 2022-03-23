@@ -15,6 +15,7 @@ const Theme1 = ({id, data, ...props}) => {
     return(
         <div className={classNames(c.theme1)}>
             <div className={classNames(c.profileBgContainer)}>
+                <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : require("../../../assets/images/BackgroundLight.png")} alt="bg-img"/>
             </div>
             <center>
                 <img className={classNames(c.profileImage, "rounded-circle")} src={data?.PersonalInfo?.ImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.ImageLocation}` : require('../../../assets/images/Profile.png')} alt="profile"/>
