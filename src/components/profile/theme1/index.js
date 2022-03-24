@@ -5,7 +5,6 @@ import {AppIcon, YoutubeIcon} from '../../shared/svg';
 import CardMedia from '@mui/material/CardMedia';
 import {videoURL} from '../../../helper/theme';
 import {API_URLS} from "../../../config/api_urls/api_urls";
-import { Link } from 'react-router-dom';
 
 const Theme1 = ({id, data, ...props}) => {
     const [play, setPlay] = useState(false)
@@ -16,13 +15,14 @@ const Theme1 = ({id, data, ...props}) => {
     return(
         <div className={classNames(c.theme1)}>
             <div className={classNames(c.profileBgContainer)}>
-                <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : require("../../../assets/images/BackgroundLight.png")} alt="bg-img"/>
+                <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : "https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400aaf215c9e12f.jpg"} alt="bg-img"/>
             </div>
             <center>
                 <img className={classNames(c.profileImage, "rounded-circle")} src={data?.PersonalInfo?.ImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.ImageLocation}` : require('../../../assets/images/Profile.png')} alt="profile"/>
             </center>
             <div className={classNames(c.profileName, "text-center")}>{data?.FullName || "Update your name"}</div>
             <div className={classNames(c.cityText, "text-center")}>{data?.PersonalInfo?.Location || "Update your location"}</div>
+            <div className={classNames(c.cityText, "text-center")}>{data?.PersonalInfo?.Work || "Update your work"}</div>
 
             <div className={classNames(c.boxContainer)}>
                 <div className={classNames(c.boxTextContainer)}>

@@ -14,8 +14,8 @@ const Theme2 = ({id, data, ...props}) => {
     const thumb = "https://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg"
    
     return(
-        <div 
-        /*style={{backgroundImage: 'url(' + require("../../../assets/images/player.png")+')'}}*/ className={classNames(c.theme2)}>
+        <div className={classNames(c.theme2)}
+        /*style={{backgroundImage: 'url(' + require("../../../assets/images/player.png")+')'}}*/>
             <div className={classNames(c.filter)}>
                 <div className={classNames(c.boxImage)}>
                     {
@@ -111,7 +111,9 @@ const Theme2 = ({id, data, ...props}) => {
                                 </div>
                         }
                         </div>
-                        ) : (null)
+                        ) : (
+                            <div style={{ width:100, height:100}}></div>
+                        )
                     }
 
                     {
@@ -140,8 +142,12 @@ const Theme2 = ({id, data, ...props}) => {
                         </div>
                     }
                     <div className={classNames(c.bottomApp)}>
-                        <center><AppIconDark/></center>
-                        <center><div className={classNames(c.text)}>Powered by Caard</div></center>
+                        <a href='https://caard.club' target='_blank'>
+                            <AppIconDark/>
+                        </a>
+                        <center>
+                            <div target='_blank' href='https://caard.club' style={{ textDecoration:'none'}} className={classNames(c.text)}>Powered by Caard</div>
+                        </center>
                     </div>
                 </div>
             </div>
