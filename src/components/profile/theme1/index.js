@@ -19,77 +19,81 @@ const Theme1 = ({id, data, ...props}) => {
         }
       }, []);
 
-    return(
-        <div className={classNames(c.theme1)}>
-            <div className={classNames(c.profileBgContainer)}>
-                <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : "https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400aaf215c9e12f.jpg"} alt="bg-img"/>
-            </div>
-            <center>
-                <img className={classNames(c.profileImage, "rounded-circle")} src={data?.PersonalInfo?.ImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.ImageLocation}` : require('../../../assets/images/Profile.png')} alt="profile"/>
-            </center>
-            <div className={classNames(c.profileName, "text-center")}>{data?.FullName || "Update your name"}</div>
-            <div className={classNames(c.cityText, "text-center")}>{data?.PersonalInfo?.Location || "Update your location"}</div>
-            <div className={classNames(c.cityText, "text-center")}>{data?.PersonalInfo?.Work || "Update your work"}</div>
-
-            <div className={classNames(c.boxContainer)}>
-                <div className={classNames(c.boxTextContainer)}>
-                    <div className={classNames(c.text)}>
-                        {data?.PersonalInfo?.Bio || "Update your BIO"}
-                    </div>
+    if(data.DirectLink == true) {
+        return null
+    } else {
+        return(
+            <div className={classNames(c.theme1)}>
+                <div className={classNames(c.profileBgContainer)}>
+                    <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : "https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400aaf215c9e12f.jpg"} alt="bg-img"/>
                 </div>
-
-                
-                {
-                    (data?.SocialLinks && Array.isArray(data.SocialLinks) && (data.SocialLinks).length > 0 ) &&
-                     <div className={c.boxSocialContainer}>
-                        {
-                            (data.SocialLinks).map((item)=>{
-                                if (item.isActive === true) { 
-                                    return (
-                                        <center className={classNames("mt-1")} key={item?.Order}>
-                                            <a href={`https://${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>
-                                                <img className={classNames(c.socialImage)} src={`${API_URLS.whiteAssets}${item?.Name}.svg`} alt={item?.Name}/>
-                                            </a>
-                                        </center>) }
-                                else {
-                                    return(
-                                        <div />      
-                                    )}
-                            })
-                        }
+                <center>
+                    <img className={classNames(c.profileImage, "rounded-circle")} src={data?.PersonalInfo?.ImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.ImageLocation}` : require('../../../assets/images/Profile.png')} alt="profile"/>
+                </center>
+                <div className={classNames(c.profileName, "text-center")}>{data?.FullName || "Update your name"}</div>
+                <div className={classNames(c.cityText, "text-center")}>{data?.PersonalInfo?.Location || "Update your location"}</div>
+                <div className={classNames(c.cityText, "text-center")}>{data?.PersonalInfo?.Work || "Update your work"}</div>
+    
+                <div className={classNames(c.boxContainer)}>
+                    <div className={classNames(c.boxTextContainer)}>
+                        <div className={classNames(c.text)}>
+                            {data?.PersonalInfo?.Bio || "Update your BIO"}
+                        </div>
                     </div>
-                }
-
-                {
-                    data.FeaturedVideo ? (
-                    <div className="my-5">
-                        {
-                            play ?
-                            <CardMedia component="iframe" allow="autoplay" allowFullScreen="allowfullscreen" className={classNames(c.videoPlayer)} src={`${videoURL(data?.FeaturedVideo)}?autoplay=1&mute=1`}/>
-                            :
-                            <div className={classNames(c.video)} style={{backgroundImage: `url(${thumb})`}}>
-                                {
-                                    data?.PersonalInfo?.ImageLocation ? 
-                                    <div className={classNames(c.icon)} style={{backgroundImage: 'url('+ `data:image/png;base64,${data?.PersonalInfo?.ImageLocation}`+')'}}></div>
-                                    :
-                                    <div className={classNames(c.icon)} style={{backgroundImage: 'url('+ require("../../../assets/images/Profile.png") +')'}}></div>
-                                }
-                                <div className={classNames(c.text)}>{data?.FullName || "Video Title"}</div>
-                                <div className={classNames(c.playerIcon)} onClick={()=>setPlay(true)}>
-                                    <YoutubeIcon/>
-                                </div>                    
-                            </div>
-                        }
-                    </div> ) : (null)
-                }
-
-            <div className={classNames(c.bottomApp)}>
-                <center><AppIcon/></center>
-                <center><div className={classNames(c.text)}>Powered by Caard</div></center>
+    
+                    
+                    {
+                        (data?.SocialLinks && Array.isArray(data.SocialLinks) && (data.SocialLinks).length > 0 ) &&
+                         <div className={c.boxSocialContainer}>
+                            {
+                                (data.SocialLinks).map((item)=>{
+                                    if (item.isActive === true) { 
+                                        return (
+                                            <center className={classNames("mt-1")} key={item?.Order}>
+                                                <a href={`https://${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>
+                                                    <img className={classNames(c.socialImage)} src={`${API_URLS.whiteAssets}${item?.Name}.svg`} alt={item?.Name}/>
+                                                </a>
+                                            </center>) }
+                                    else {
+                                        return(
+                                            <div />      
+                                        )}
+                                })
+                            }
+                        </div>
+                    }
+    
+                    {
+                        data.FeaturedVideo ? (
+                        <div className="my-5">
+                            {
+                                play ?
+                                <CardMedia component="iframe" allow="autoplay" allowFullScreen="allowfullscreen" className={classNames(c.videoPlayer)} src={`${videoURL(data?.FeaturedVideo)}?autoplay=1&mute=1`}/>
+                                :
+                                <div className={classNames(c.video)} style={{backgroundImage: `url(${thumb})`}}>
+                                    {
+                                        data?.PersonalInfo?.ImageLocation ? 
+                                        <div className={classNames(c.icon)} style={{backgroundImage: 'url('+ `data:image/png;base64,${data?.PersonalInfo?.ImageLocation}`+')'}}></div>
+                                        :
+                                        <div className={classNames(c.icon)} style={{backgroundImage: 'url('+ require("../../../assets/images/Profile.png") +')'}}></div>
+                                    }
+                                    <div className={classNames(c.text)}>{data?.FullName || "Video Title"}</div>
+                                    <div className={classNames(c.playerIcon)} onClick={()=>setPlay(true)}>
+                                        <YoutubeIcon/>
+                                    </div>                    
+                                </div>
+                            }
+                        </div> ) : (null)
+                    }
+    
+                <div className={classNames(c.bottomApp)}>
+                    <center><AppIcon/></center>
+                    <center><div className={classNames(c.text)}>Powered by Caard</div></center>
+                </div>
+                
+                </div>
             </div>
-            
-            </div>
-        </div>
-    )
+        )
+    }
 }
 export default Theme1;

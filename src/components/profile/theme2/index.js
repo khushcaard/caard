@@ -14,14 +14,16 @@ const Theme2 = ({id, data, ...props}) => {
 
     const videoId = (data.FeaturedVideo ? data.FeaturedVideo.split("?v=")[1] : "testtest") //data.FeaturedVideo.split("?v=")[1];
     const thumb = "https://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg"
-    
     useEffect(() => {
         if (data.DirectLink == true) {
             const rurl = "https://" + data.SocialLinks[0].URL;
-            window.location.href = rurl
+            window.location.href = rurl//data.SocialLinks[0].URL;
         }
       }, []);
-
+      
+    if (data.DirectLink == true) { 
+        return null
+    } else {
         return(
             <div className={classNames(c.theme2)}
             /*style={{backgroundImage: 'url(' + require("../../../assets/images/player.png")+')'}}*/>
@@ -143,6 +145,7 @@ const Theme2 = ({id, data, ...props}) => {
                 
             </div>
         )
+    }
 }
 
 export default Theme2;
