@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import c from './theme1.module.scss';
 import {AppIcon, YoutubeIcon} from '../../shared/svg';
 import CardMedia from '@mui/material/CardMedia';
@@ -11,7 +11,14 @@ const Theme1 = ({id, data, ...props}) => {
     
     const videoId = (data.FeaturedVideo ? data.FeaturedVideo.split("?v=")[1] : "testtest") //data.FeaturedVideo.split("?v=")[1];
     const thumb = "https://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg"
-   
+    
+    useEffect(() => {
+        if (data.DirectLink == true) {
+            const rurl = "https://" + data.SocialLinks[0].URL;
+            window.location.href = rurl
+        }
+      }, []);
+
     return(
         <div className={classNames(c.theme1)}>
             <div className={classNames(c.profileBgContainer)}>
