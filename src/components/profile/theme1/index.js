@@ -86,10 +86,14 @@ const Theme1 = ({id, data, ...props}) => {
                         </div> ) : (null)
                     }
     
-                <div className={classNames(c.bottomApp)}>
-                    <center><AppIcon/></center>
-                    <center><div className={classNames(c.text)}>Powered by Caard</div></center>
-                </div>
+                    <div className={classNames(c.bottomApp)}>
+                        <a href='https://caard.club' target='_blank'>
+                            <AppIcon/>
+                        </a>
+                        <center>
+                            <div target='_blank' href='https://caard.club' style={{ textDecoration:'none'}} className={classNames(c.text)}>Powered by Caard</div>
+                        </center>
+                    </div>
                 
                 </div>
             </div>
