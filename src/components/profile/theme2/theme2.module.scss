@@ -1,14 +1,14 @@
 @import './../../../assets/main';
 
 .theme2{
-    background: $Nero;
+    background: #1c1c1c;
     min-height: 100vh;
 }
 
 .boxImage:before {
     content: " ";
     width: 100%;
-    height: 171px;
+    height: 160px;
     position: absolute;
     top: 0;
     left: 0;
@@ -17,7 +17,7 @@
 
 .profileBgImage{
     width: 100%;
-    height: 171px;
+    height: 160px;
     background-size: 100% 100%;
     object-fit: cover;
     background-repeat: no-repeat;
@@ -68,7 +68,7 @@
     font-size: 18px;
     line-height: 25px;
     color: $Nero;
-    margin-top: 43px;
+    margin-top: 55px;
     color: $white;   
 }
 
@@ -179,12 +179,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 50px;
 
     .text{
         font-style: normal;
         font-weight: normal;
         font-size: 12px;
-        margin-top: 40px;
         line-height: 16px;
         text-align: center;
         padding: 4px 0px 10px 0px;
