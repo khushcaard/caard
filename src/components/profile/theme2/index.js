@@ -41,7 +41,7 @@ const Theme2 = ({id, data, ...props}) => {
                             <img className={classNames(c.profileImage, "rounded-circle")} src={data?.PersonalInfo?.ImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.ImageLocation}` : require('../../../assets/images/Profile.png')} alt="profile"/>
                         </div>
 
-                        <div className={classNames(c.profileName, "text-center")}>{data?.FullName || "Update your name"}</div>
+                        <div className={classNames(c.profileName, "text-center")}>{data?.PersonalInfo.Name || "Update your name"}</div>
                         <div className={classNames(c.cityText, "text-center")}>{data?.PersonalInfo?.Work || "Update your work"}</div>
                         <div className={classNames(c.cityText, "text-center")}><LocationPinIcon/>{data?.PersonalInfo?.Location || "Update your location"}</div>
                     </center>
