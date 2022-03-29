@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "CI=false && react-scripts build && cp -r build/ ../ && zip -r ../build.zip ../build  ",
+    "build": "CI=false && react-scripts build && cp -r build/ ../",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "push": "git push upstream master && git push caard master"
