@@ -94,7 +94,7 @@ const Theme2 = ({id, data, ...props}) => {
                                                 :
                                                 <div className={classNames(c.icon,"bg-white" )} style={{backgroundImage: 'url('+ require("../../../assets/images/Profile.png") +')'}}></div>
                                             }
-                                            <div className={classNames(c.text)}>{data?.FullName || "Video Title"}</div>
+                                            <div className={classNames(c.text)}>{data?.PersonalInfo.Name || "Video Title"}</div>
                                             <div className={classNames(c.playerIcon)}>
                                                 <YoutubeColoredIcon/>
                                             </div>                    
