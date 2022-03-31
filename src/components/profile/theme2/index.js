@@ -20,12 +20,21 @@ const Theme2 = ({id, data, ...props}) => {
             window.location.href = rurl//data.SocialLinks[0].URL;
         }
       }, []);
+
+    function getBg() {
+        if ("BackgroundImage" in data) {
+            return data?.BackgroundImage;
+        } else {
+            return "none";
+        }
+      }
       
     if (data.DirectLink == true) { 
         return null
     } else {
         return(
             <div className={classNames(c.theme2)}
+            style={{ backgroundImage: `url(${getBg()})` }} 
             /*style={{backgroundImage: 'url(' + require("../../../assets/images/player.png")+')'}}*/>
                 <div className={classNames(c.filter)}>
                     <div className={classNames(c.boxImage)}>
