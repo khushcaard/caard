@@ -1,5 +1,19 @@
 @import './../../../assets/main';
 
+.modal {
+    color: #333;
+    font-family: sans-serif;
+    line-height: 1.5;
+  } 
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .modal {
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+      //background-color: $white;  
+    }
+  }
+
 .theme1{
     background: $white;
     min-height: 100vh;

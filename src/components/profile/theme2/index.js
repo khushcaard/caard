@@ -36,7 +36,7 @@ const Theme2 = ({id, data, ...props}) => {
             <div className={classNames(c.theme2)}
             style={{ backgroundImage: `url(${getBg()})` }} 
             /*style={{backgroundImage: 'url(' + require("../../../assets/images/player.png")+')'}}*/>
-                <div className={classNames(c.filter)}>
+                <div className={classNames(c.modal)}>
                     <div className={classNames(c.boxImage)}>
                         {
                             data?.PersonalInfo?.CoverImageLocation ?

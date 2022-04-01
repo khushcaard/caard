@@ -33,17 +33,18 @@ const Theme1 = ({id, data, ...props}) => {
         return(
             <div style={{ background: `url(${getBg()})` }} 
                     className={classNames(c.theme1)}>
-                <div className={classNames(c.profileBgContainer)}>
-                    <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : "https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400aaf215c9e12f.jpg"} alt="bg-img"/>
-                </div>
-                <center>
-                    <img className={classNames(c.profileImage, "rounded-circle")} src={data?.PersonalInfo?.ImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.ImageLocation}` : require('../../../assets/images/Profile.png')} alt="profile"/>
-                </center>
-                <div className={classNames(c.profileName, "text-center")}>{data?.PersonalInfo.Name || "Update your name"}</div>
-                <div className={classNames(c.cityText, "text-center")}>{data?.PersonalInfo?.Location || "Update your location"}</div>
-                <div className={classNames(c.cityText, "text-center")}>{data?.PersonalInfo?.Work || "Update your work"}</div>
-        
-                <div className={classNames(c.boxContainer)}>
+               <div className={classNames(c.modal)}>
+                    <div className={classNames(c.profileBgContainer)}>
+                        <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : "https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400aaf215c9e12f.jpg"} alt="bg-img"/>
+                    </div>
+                    <center>
+                        <img className={classNames(c.profileImage, "rounded-circle")} src={data?.PersonalInfo?.ImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.ImageLocation}` : require('../../../assets/images/Profile.png')} alt="profile"/>
+                    </center>
+                    <div className={classNames(c.profileName, "text-center")}>{data?.PersonalInfo.Name || "Update your name"}</div>
+                    <div className={classNames(c.cityText, "text-center")}>{data?.PersonalInfo?.Location || "Update your location"}</div>
+                    <div className={classNames(c.cityText, "text-center")}>{data?.PersonalInfo?.Work || "Update your work"}</div>
+            
+                    <div className={classNames(c.boxContainer)}>
                         <div className={classNames(c.boxTextContainer)}>
                             <div className={classNames(c.text)}>
                                 {data?.PersonalInfo?.Bio || "Update your BIO"}
@@ -105,6 +106,7 @@ const Theme1 = ({id, data, ...props}) => {
                         </div>
                     
                 </div>
+               </div>
             </div>
         )
     }
