@@ -14,7 +14,7 @@
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     .modal {
       -webkit-backdrop-filter: blur(2px);
-      backdrop-filter: blur(2px);
+      backdrop-filter: brightness(70%);
     }
   }
 

@@ -4,12 +4,13 @@
     color: #333;
     font-family: sans-serif;
     line-height: 1.5;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.88))
   } 
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     .modal {
-      -webkit-backdrop-filter: blur(2px);
-      backdrop-filter: blur(2px);
+      //-webkit-backdrop-filter: blur(2px);
+      //backdrop-filter: brightness(90%);
       //background-color: $white;  
     }
   }
