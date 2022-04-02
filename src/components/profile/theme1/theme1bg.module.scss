@@ -1,5 +1,9 @@
 @import './../../../assets/main';
 
+.modal {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7))
+  } 
+
 .theme1{
     background: $white;
     min-height: 100vh;
@@ -30,7 +34,7 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 25px;
-    color: $Nero;
+    color: #fff;
     margin-top: 60px;
 }
 
@@ -39,7 +43,7 @@
     font-weight: 450;
     font-size: 14px;
     line-height: 19px;
-    color: $Matterhorn;
+    color: #fff;
     margin-top: 2px;
 }
 
@@ -61,7 +65,7 @@
         font-size: 14px;
         line-height: 19px;
         text-align: center;
-        color: $Matterhorn
+        color: #fff
     }
 }
 
@@ -83,7 +87,7 @@
         line-height: 16px;
         text-align: center;
         padding: 4px 0px 10px 0px;
-        color:$Nero;
+        color:#fff;
     }
 }
 
