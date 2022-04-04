@@ -1,12 +1,13 @@
 @import './../../../assets/main';
 
-.modal {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7))
-  } 
-
 .theme1{
     background: $white;
     min-height: 100vh;
+    min-width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .profileBgContainer{

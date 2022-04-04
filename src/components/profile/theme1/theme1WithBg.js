@@ -31,9 +31,8 @@ const Theme1Bg = ({id, data, ...props}) => {
         return null
     } else {
         return(
-            <div style={{ background: `url(${getBg()})` }} 
-                    className={classNames(c.theme1)}>
-               <div className={classNames(c.modal)}>
+            <div style={{ backgroundImage: `url(${getBg()})` }} className={classNames(c.theme1)}>
+               <div>
                     <div className={classNames(c.profileBgContainer)}>
                         {/* <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : "https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400aaf215c9e12f.jpg"} alt="bg-img"/> */}
                     </div>
