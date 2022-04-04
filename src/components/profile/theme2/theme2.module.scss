@@ -1,23 +1,5 @@
 @import './../../../assets/main';
 
-.modal {
-    //background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 5px;
-    color: #333;
-    font-family: sans-serif;
-    line-height: 1.5;
-    a {
-      color: #bf0222;
-    }
-  } 
-
-@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    .modal {
-      -webkit-backdrop-filter: blur(2px);
-      backdrop-filter: brightness(70%);
-    }
-  }
-
 .theme2{
     background: #1c1c1c;
     min-height: 100vh;
@@ -119,7 +101,6 @@
         line-height: 19px;
         text-align: center;
         color: $white;
-        font-style: italic;
         word-break: normal;
     }
 }
