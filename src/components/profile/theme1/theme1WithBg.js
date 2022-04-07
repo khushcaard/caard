@@ -5,6 +5,7 @@ import { AppIconDark, YoutubeIcon } from '../../shared/svg';
 import CardMedia from '@mui/material/CardMedia';
 import {videoURL} from '../../../helper/theme';
 import {API_URLS} from "../../../config/api_urls/api_urls";
+import BackgroundSlider from 'react-background-slider';
 
 const Theme1Bg = ({id, data, ...props}) => {
     const [play, setPlay] = useState(false)
@@ -26,12 +27,9 @@ const Theme1Bg = ({id, data, ...props}) => {
             return "none";
         }
       }
-    
-    if(data.DirectLink == true) {
-        return null
-    } else {
+    const Card = () => {
         return(
-            <div style={{ backgroundImage: `url(${getBg()})` }} className={classNames(c.theme1)}>
+            <div /*style={{ backgroundImage: `url(${getBg()})` }}*/ className={classNames(c.theme1)}>
                <div>
                     <div className={classNames(c.profileBgContainer)}>
                         {/* <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : "https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400aaf215c9e12f.jpg"} alt="bg-img"/> */}
@@ -108,6 +106,20 @@ const Theme1Bg = ({id, data, ...props}) => {
                </div>
             </div>
         )
+    }
+
+    if(data.DirectLink == true) {
+        return null
+    } else {
+       return(
+        <div>
+            <Card />
+            <BackgroundSlider 
+            images={["https://images.unsplash.com/photo-1597378080785-fc16687451ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80","https://images.unsplash.com/photo-1648738089275-bf7e755edae7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80","https://images.unsplash.com/photo-1649257171214-6203e1c499a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80"]}
+            duration={4}
+            transition={2}/>
+        </div>
+       )
     }
 }
 export default Theme1Bg;
