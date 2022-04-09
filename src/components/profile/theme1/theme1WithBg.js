@@ -5,13 +5,16 @@ import { AppIconDark, YoutubeIcon } from '../../shared/svg';
 import CardMedia from '@mui/material/CardMedia';
 import {videoURL} from '../../../helper/theme';
 import {API_URLS} from "../../../config/api_urls/api_urls";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 const Theme1Bg = ({id, data, ...props}) => {
     const [play, setPlay] = useState(false)
     
     const videoId = (data.FeaturedVideo ? data.FeaturedVideo.split("?v=")[1] : "testtest") //data.FeaturedVideo.split("?v=")[1];
     const thumb = "https://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg"
-    
+    var bgImgs = ["https://images.unsplash.com/photo-1649401691853-6ecfa00f044e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60","https://images.unsplash.com/photo-1444090542259-0af8fa96557e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80","https://images.unsplash.com/photo-1596226833102-76b6247dfc2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"];
+
     useEffect(() => {
         if (data.DirectLink == true) {
             const rurl = "https://" + data.SocialLinks[0].URL;
@@ -34,7 +37,16 @@ const Theme1Bg = ({id, data, ...props}) => {
             <div style={{ backgroundImage: `url(${getBg()})` }} className={classNames(c.theme1)}>
                <div>
                     <div className={classNames(c.profileBgContainer)}>
-                        {/* <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : "https://i.pinimg.com/originals/f5/05/24/f50524ee5f161f437400aaf215c9e12f.jpg"} alt="bg-img"/> */}
+                        <Carousel
+                            autoPlay={true}
+                            interval={5000}
+                            infiniteLoop={true}
+                            showArrows={false} showStatus={false}
+                            showIndicators={false} showThumbs={false}>
+                            {bgImgs.map((element) => (
+                                <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : element} alt="bg-img"/>
+                            ))}  
+                        </Carousel>
                     </div>
                     <center>
                         <img className={classNames(c.profileImage, "rounded-circle")} src={data?.PersonalInfo?.ImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.ImageLocation}` : require('../../../assets/images/Profile.png')} alt="profile"/>

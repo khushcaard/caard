@@ -5,10 +5,12 @@ import {AppIconDark, LocationPinIcon, YoutubeColoredIcon} from '../../shared/svg
 import CardMedia from '@mui/material/CardMedia';
 import {videoURL} from '../../../helper/theme'
 import {API_URLS} from "../../../config/api_urls/api_urls";
+import { Carousel } from 'react-responsive-carousel';
 
 const Theme2Bg = ({id, data, ...props}) => {
     const [play, setPlay] = useState(false); 
     const [url, setUrl] = useState("https://media.istockphoto.com/photos/dotted-grid-paper-background-texture-seamless-repeat-pattern-picture-id1320330053?b=1&k=20&m=1320330053&s=170667a&w=0&h=XisfN35UnuxAVP_sjq3ujbFDyWPurSfSTYd-Ll09Ncc=")
+    var bgImgs = ["https://images.unsplash.com/photo-1649401691853-6ecfa00f044e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60","https://images.unsplash.com/photo-1444090542259-0af8fa96557e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80","https://images.unsplash.com/photo-1596226833102-76b6247dfc2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"];
 
     const videoId = (data.FeaturedVideo ? data.FeaturedVideo.split("?v=")[1] : "testtest") //data.FeaturedVideo.split("?v=")[1];
     const thumb = "https://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg"
@@ -34,12 +36,22 @@ const Theme2Bg = ({id, data, ...props}) => {
             <div style={{ backgroundImage: `url(${getBg()})` }}  className={classNames(c.theme2)}> 
                 <div>
                     <div className={classNames(c.boxImage)}>
-                        {
+                        <Carousel
+                                autoPlay={true}
+                                interval={5000}
+                                infiniteLoop={true}
+                                showArrows={false} showStatus={false}
+                                showIndicators={false} showThumbs={false}>
+                                {bgImgs.map((element) => (
+                                    <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : element} alt="bg-img"/>
+                                ))}  
+                            </Carousel>
+                        {/* {
                             data?.PersonalInfo?.CoverImageLocation ?
                             <div className={classNames(c.profileBgImage)} ></div>
                             :
                             <div className={classNames(c.profileBgImage)}></div>
-                        }
+                        } */}
                     </div>
                     <center>
                         <div className={classNames(c.profileImageBorder, "rounded-circle")}>
