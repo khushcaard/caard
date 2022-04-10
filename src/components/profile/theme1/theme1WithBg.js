@@ -43,9 +43,12 @@ const Theme1Bg = ({id, data, ...props}) => {
                             infiniteLoop={true}
                             showArrows={false} showStatus={false}
                             showIndicators={false} showThumbs={false}>
-                            {bgImgs.map((element) => (
+                            {/* {bgImgs.map((element) => (
                                 <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : element} alt="bg-img"/>
-                            ))}  
+                            ))}   */}
+                            {JSON.parse(data.BusinessMode.HoveringImages).map(element => (
+                                <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : element.URL} alt="bg-img"/>
+                            ))}
                         </Carousel>
                     </div>
                     <center>
