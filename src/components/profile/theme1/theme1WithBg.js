@@ -78,6 +78,15 @@ const Theme1Bg = ({id, data, ...props}) => {
                                                         <img className={classNames(c.socialImage)} src={`${API_URLS.whiteAssets}${item?.Name}.svg`} alt={item?.Name}/>
                                                     </a>
                                                 </center>) }
+                                        if (item.Name === 'Email') {
+                                            return (
+                                               <center className={classNames("mt-1")} key={item?.Order}>
+                                                    <a href={`https://${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>
+                                                        <img className={classNames(c.socialImage)} src={`${API_URLS.whiteAssets}${item?.Name}.svg`} alt={item?.Name}/>
+                                                    </a>
+                                                </center> 
+                                            )
+                                        }
                                         else {
                                             return(
                                                 <div />      

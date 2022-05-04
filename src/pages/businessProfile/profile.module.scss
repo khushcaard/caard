@@ -1,0 +1,10 @@
+@import './../../assets/main';
+
+.loader{
+    height: 100vh;
+    div{
+        position: relative;
+        text-align: center;
+        top: calc(50% - 10px);
+    }
+}

@@ -100,7 +100,8 @@ const Theme2Bg = ({id, data, ...props}) => {
                                                 </a>
                                             </div>
                                         )
-                                    } else {
+                                    }
+                                    else {
                                         return null
                                     }
                                 })}
@@ -137,9 +138,31 @@ const Theme2Bg = ({id, data, ...props}) => {
                         {
                             (data?.SocialLinks && Array.isArray(data.SocialLinks) && ((data.SocialLinks).length > 3) ) &&
                             <div className="row justify-content-center mt-3">
-                                {
-                                    data.SocialLinks.slice(3).map((item)=>{
-                                        if (item.isActive == true) {
+                                {console.log(data.SocialLinks.filter(e => e.Name === 'Email'))}
+                                {   
+                                    data.SocialLinks.filter(element => element.Name === 'Email').map((item)=>{
+                                        if (item.isActive === true) {
+                                            return (
+                                                <div key={item?.Name} className={classNames(c.cursorPointer,"col-auto mt-4")}>
+                                                    <a href={`${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>  
+                                                        <div className={classNames(c.circleIcon)}>
+                                                            <div className={classNames(c.centerIcon)}>
+                                                                <img className={classNames(c.socialImage)} src={`${API_URLS.blackAssets}${item?.Name}.svg`} alt={item?.Name}/>
+                                                            </div>
+                                                        </div>
+                                                        <div className={classNames(c.circleIconText, "text-white mt-2 text-center")}>{item?.Name}</div>
+                                                    </a>    
+                                                </div>
+                                            )
+                                        } 
+                                        else {
+                                            return (null)
+                                        }
+                                    })
+                                }
+                                {   
+                                    data.SocialLinks.filter(element => element.Name != 'Email').slice(3).map((item)=>{
+                                        if (item.isActive === true) {
                                             return (
                                                 <div key={item?.Name} className={classNames(c.cursorPointer,"col-auto mt-4")}>
                                                     <a href={`https://${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>  
@@ -152,8 +175,9 @@ const Theme2Bg = ({id, data, ...props}) => {
                                                     </a>    
                                                 </div>
                                             )
-                                        } else {
-                                            return (<div></div>)
+                                        } 
+                                        else {
+                                            return (null)
                                         }
                                     })
                                 }
