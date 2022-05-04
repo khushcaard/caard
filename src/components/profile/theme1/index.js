@@ -53,10 +53,7 @@ const Theme1 = ({id, data, ...props}) => {
         
                         
                         {
-                            (data?.SocialLinks && Array.isArray(data.SocialLinks) && (data.SocialLinks).length > 0 ) &&
-                            <div className={c.boxSocialContainer}>
-                                {
-                                    (data.SocialLinks).map((item)=>{
+                                    (data.SocialLinks).filter(element => element.Name !== 'Email' && element.Name !== 'Call').map((item)=>{
                                         if (item.isActive === true) { 
                                             return (
                                                 <center className={classNames("mt-1")} key={item?.Order}>
@@ -66,11 +63,24 @@ const Theme1 = ({id, data, ...props}) => {
                                                 </center>) }
                                         else {
                                             return(
-                                                <div />      
+                                                null    
                                             )}
                                     })
-                                }
-                            </div>
+                        }
+                        {
+                            (data.SocialLinks).filter(element => element.Name === 'Email' || element.Name === 'Call').map((item)=>{
+                                if (item.isActive === true) { 
+                                    return (
+                                        <center className={classNames("mt-1")} key={item?.Order}>
+                                            <a href={`${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>
+                                                <img className={classNames(c.socialImage)} src={`${API_URLS.whiteAssets}${item?.Name}.svg`} alt={item?.Name}/>
+                                            </a>
+                                        </center>) }
+                                else {
+                                    return(
+                                        null    
+                                        )}
+                                })
                         }
         
                         {
