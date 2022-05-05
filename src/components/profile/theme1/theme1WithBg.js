@@ -6,7 +6,6 @@ import CardMedia from '@mui/material/CardMedia';
 import {videoURL} from '../../../helper/theme';
 import {API_URLS} from "../../../config/api_urls/api_urls";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
 
 const Theme1Bg = ({id, data, ...props}) => {
     const [play, setPlay] = useState(false)
@@ -59,6 +58,21 @@ const Theme1Bg = ({id, data, ...props}) => {
                             <div className={c.boxSocialContainer}>
                                 {
                                     (data.SocialLinks).filter(element => element.Name === 'Email' || element.Name === 'Call').map((item)=>{
+                                        if (item.isActive === true) { 
+                                            return (
+                                                <center className={classNames("mt-1")} key={item?.Order}>
+                                                    <a href={`${item?.URL}`} target="_blank" rel="noopener noreferrer" className={c.anchor}>
+                                                        <img className={classNames(c.socialImage)} src={`${API_URLS.whiteAssets}${item?.Name}.svg`} alt={item?.Name}/>
+                                                    </a>
+                                                </center>) }
+                                        else {
+                                            return(
+                                                null    
+                                            )}
+                                    })
+                                }
+                                {
+                                    (data.SocialLinks).filter(element => element.Name !== 'Email' || element.Name !== 'Call').map((item)=>{
                                         if (item.isActive === true) { 
                                             return (
                                                 <center className={classNames("mt-1")} key={item?.Order}>
