@@ -1,0 +1,276 @@
+@import './../../../assets/main';
+
+.theme2{
+    background: #fff;
+    min-height: 100vh;
+    min-width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.boxImage:before {
+    content: " ";
+    width: 100%;
+    height: 160px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.profileBgImage{
+    width: 100%;
+    height: 160px;
+    background-size: 100% 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
+.profileImage{   
+    width: 88px;
+    height: 88px;
+    padding:1px;
+    margin:4px;
+}
+
+.profileImageBorder {
+    position:absolute;
+    top: 113px;
+    width:96px;
+    height: 96px;
+    --b:3px;
+    margin-left: -48px;
+    display: inline-block;
+    z-index:0;
+  }
+  .profileImageBorder:after {
+    content:"";
+    display:inline-block;
+  }
+  .profileImageBorder:before {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: var(--c,linear-gradient(to right, $BlueViolet, $FrenchRose));
+    padding: var(--b);
+    border-radius:50%;
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+.profileName{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: $Nero;
+    margin-top: 55px;
+    color: $white;   
+}
+
+.cityText{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 19px;
+    color: #fff;
+    margin-top: 2px;
+    word-break: break-all;
+}
+
+
+.boxContainer{
+    margin: 0px 20px;
+}
+
+.boxTextContainer{
+    margin-top: 18px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    padding: 19px 42px;
+    background: radial-gradient(87.37% 1054.18% at 6.27% -6.32%, $Charcoal 0%, $Nero2 100%);
+
+    .text{
+        font-style: normal;
+        font-weight: 350;
+        font-size: 14px;
+        line-height: 19px;
+        text-align: center;
+        color: $white;
+        word-break: normal;
+    }
+}
+
+.socialIcons{
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border: double 2px transparent;
+    border-radius: 50%;
+    background-image: linear-gradient($Nero1, $Nero1), radial-gradient(circle at top left, $BlueViolet,$FrenchRose);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 0px 3px 10px 1px #FC4C8A50;
+
+    .socialIconsOuter{
+        position:absolute;
+        width: 56px;
+        height:56px;
+        background: radial-gradient(87.37% 1054.18% at 6.27% -6.32%, $Charcoal 0%, $Nero2 100%);
+        border-radius: 50%;
+        margin-left: 2px;
+        margin-top: 2px;
+    }
+
+    .socialIcon{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+.sBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    .sBoxChild {
+        margin-right: 0px;
+    }
+}
+
+.circleIcon{
+    position: relative;
+    height: 64px;
+    width: 64px;
+    border: 2px #FFFFFF solid;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .centerIcon{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+.circleIconText{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: $white;
+}
+
+.bottomApp{
+    margin-top:50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+
+    .text{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        padding: 4px 0px 10px 0px;
+        color:$white;
+    }
+}
+
+.videoOuter{
+    position: relative;
+    width: 100%;
+    height: 215px;
+    border: double 2px transparent;
+    border-radius: 18px;
+    background-image: linear-gradient($Nero1, $Nero1), radial-gradient(circle at top left, $BlueViolet,$FrenchRose);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.video{
+    position: absolute;
+    width: 100%;
+    height: 211px;
+    border-radius: 18px;
+    background-size: 100% 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    z-index: 998;
+
+    
+    .icon{
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        top: 8px;
+        left: 9px;
+        border-radius: 50%;
+        background-size: 100% 100%;
+        object-fit: cover;
+        background-repeat: no-repeat;
+        
+    }
+
+    .text{
+        position: absolute;
+        top: 8px;
+        left:40px;
+        color:$white;
+    }
+    .playerIcon{
+        position: absolute;
+        top:50%;
+        left:50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        cursor:pointer;
+    }    
+}
+
+.video:before {
+    content: " ";
+    width: 100%;
+    height: 211px;
+    position: absolute;
+    border-radius: 18px;
+    top: 0;
+    left: 0;
+    //background: linear-gradient(to left, $Nero1 20%,rgba(255,255,255,0) 100%);
+}
+
+.videoPlayer{
+    border-radius:18px;
+    height: 211px;
+    width: 100%;
+}
+
+.anchor{
+    text-decoration: none;
+}
+
+.socialImage{
+    height: 36px;
+    width: 36px;
+}
