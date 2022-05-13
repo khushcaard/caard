@@ -216,6 +216,14 @@ export const LocationPinIcon = ({...props}) => {
     )
 }
 
+export const AboutArrowIcon = () => {
+    return (
+        <svg width="25" height="8" viewBox="0 0 25 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24.3536 4.55473C24.5488 4.35946 24.5488 4.04288 24.3536 3.84762L21.1716 0.665638C20.9763 0.470376 20.6597 0.470376 20.4645 0.665638C20.2692 0.8609 20.2692 1.17748 20.4645 1.37274L23.2929 4.20117L20.4645 7.0296C20.2692 7.22486 20.2692 7.54144 20.4645 7.73671C20.6597 7.93197 20.9763 7.93197 21.1716 7.73671L24.3536 4.55473ZM0 4.70117H24V3.70117H0V4.70117Z" fill="#222222"/>
+        </svg>
+    )
+}
+
 export const YoutubeColoredIcon = ({...props}) => {
     return(
         <svg width="63" height="45" viewBox="0 0 63 45" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -33,7 +33,7 @@ const Theme2Bg = ({id, data, ...props}) => {
         return null
     } else {
         return(
-            <div style={{ backgroundImage: `url(${getBg()})` }}  className={classNames(c.theme2)}> 
+            <div  className={classNames(c.theme2)}> 
                 <div>
                     <div className={classNames(c.boxImage)}>
                         {data.BusinessMode ? (

@@ -31,7 +31,7 @@ const Theme1 = ({id, data, ...props}) => {
         return null
     } else {
         return(
-            <div style={{ background: `url(${getBg()})` }} 
+            <div 
                     className={classNames(c.theme1)}>
                <div className={classNames(c.modal)}>
                     <div className={classNames(c.profileBgContainer)}>

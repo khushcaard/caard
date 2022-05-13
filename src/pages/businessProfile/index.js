@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Theme from '../../components/profile';
+import BusinessTheme from '../../components/businessProfile';
 import {useParams} from "react-router-dom";
 import axios from 'axios';
 import c from './profile.module.scss';
@@ -36,7 +36,7 @@ const BusinessProfile = () => {
 
     if(!loading){
         return(         
-            <Theme id={id} data={data} theme={theme} />
+            <BusinessTheme id={id} data={data} theme={theme} />
         )
     }
     else{
