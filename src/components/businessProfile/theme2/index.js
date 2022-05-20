@@ -7,14 +7,52 @@ import CardMedia from '@mui/material/CardMedia';
 import {videoURL} from '../../../helper/theme'
 import {API_URLS} from "../../../config/api_urls/api_urls";
 import GoogleMapReact from 'google-map-react';
+import Zoom from 'react-medium-image-zoom'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import 'react-medium-image-zoom/dist/styles.css'
+import { Carousel } from 'react-responsive-carousel';
 
 const Theme2 = ({id, data, ...props}) => {
     const [play, setPlay] = useState(false); 
     const navigate = useNavigate();
     const [url, setUrl] = useState("https://media.istockphoto.com/photos/dotted-grid-paper-background-texture-seamless-repeat-pattern-picture-id1320330053?b=1&k=20&m=1320330053&s=170667a&w=0&h=XisfN35UnuxAVP_sjq3ujbFDyWPurSfSTYd-Ll09Ncc=")
 
-    const videoId = (data.FeaturedVideo ? data.FeaturedVideo.split("?v=")[1] : "testtest") //data.FeaturedVideo.split("?v=")[1];
+    const videoId = (data.BusinessMode.FeaturedVideo ? data.BusinessMode.FeaturedVideo.split("?v=")[1] : "testtest") //data.FeaturedVideo.split("?v=")[1];
     const thumb = "https://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg"
+    const renderArrow = direction => (onClickHandler, shouldBeEnabled, label) => {
+        if (!shouldBeEnabled) {
+          return;
+        }
+      
+        const styles = {
+          position: "absolute",
+          top: "45%",
+          zIndex: 2,
+          border: 'none',
+          backgroundColor: 'transparent'
+        };
+      
+        if (direction === "prev") {
+          styles.left = 10;
+        } else {
+          styles.right = 10;
+        }
+      
+        return (
+          <button type="button" onClick={onClickHandler} style={styles}>
+            {direction === "prev" ? (
+                <svg width="14" height="24" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.3812 -2.44301L2.53299 12.0003L15.3812 26.4436L15.3812 -2.44301Z" stroke="white" stroke-width="3"/>
+                </svg>        
+            ) : (
+                <svg width="14" height="24" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M-1.84211 -2.44301L11.0061 12.0003L-1.84211 26.4436L-1.84211 -2.44301Z" stroke="white" stroke-width="3"/>
+                </svg>
+            )}
+          </button>
+        );
+      };
+
     useEffect(() => {
         if (data.DirectLink == true) {
             const rurl = "https://" + data.SocialLinks[0].URL;
@@ -38,12 +76,18 @@ const Theme2 = ({id, data, ...props}) => {
             /*style={{backgroundImage: 'url(' + require("../../../assets/images/player.png")+')'}}*/>
                 <div className={classNames(c.modal)}>
                     <div className={classNames(c.boxImage)}>
-                        {
-                            data?.PersonalInfo?.CoverImageLocation ?
-                            <div className={classNames(c.profileBgImage)} style={{backgroundImage: 'url(' + `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` +')'}}></div>
-                            :
-                            <div className={classNames(c.profileBgImage)} style={{backgroundImage: 'url(' + require("../../../assets/images/BackgroundDark.jpeg")+')'}}></div>
-                        }
+                            <Carousel
+                                renderArrowPrev={renderArrow("prev")}
+                                renderArrowNext={renderArrow("next")}
+                                autoPlay={true}
+                                interval={1000}
+                                infiniteLoop={true}
+                                showArrows={true} showStatus={false}
+                                showIndicators={false} showThumbs={false}>
+                                {JSON.parse(data.BusinessMode.HoveringImages).map(element => (
+                                    <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : element.URL} alt="bg-img"/>
+                                ))}
+                        </Carousel>  
                     </div>
                     <center>
                         <div className={classNames(c.profileImageBorder, "rounded-circle")}>
@@ -90,13 +134,37 @@ const Theme2 = ({id, data, ...props}) => {
                             </svg>
                         </div>
 
+                        <div className={classNames(c.doclayout)}>
+                            <div className={classNames(c.docText)}>{" Company Images"}</div>
+                            <div className={classNames(c.cityText)}>&emsp;|&emsp;</div>
+                            <div className={classNames(c.dwText)}>{"Tap or slide to view more"}</div>
+                        </div>
+
+                        <div className={classNames(c.companyImages)}>
+                            <div className={classNames(c.companyContainer)}>
+                                <div style={{ display: 'flex', flexDirection: 'column', marginRight:24 }}>
+                                    <Zoom>
+                                        <img className={classNames(c.image)} src='https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YnVpbGRpbmdzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500' />
+                                    </Zoom>
+                                    <div className={classNames(c.description)}>Godrej Emerald Mumbai</div>
+                                </div>
+
+                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                    <Zoom>
+                                        <img className={classNames(c.image)} src='https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YnVpbGRpbmdzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500' />
+                                    </Zoom>
+                                    <div className={classNames(c.description)}>Godrej Emerald Mumbai</div>
+                                </div>
+                            </div>
+                        </div>
+
                         {
-                            data.FeaturedVideo ? (
+                            data.BusinessMode.FeaturedVideo ? (
                             <div>
                             {
                                 play ?
                                     <CardMedia component="iframe" allow="autoplay" allowFullScreen="allowfullscreen" className={classNames(c.videoPlayer)} 
-                                        src={`${videoURL(data?.FeaturedVideo)}?autoplay=1&mute=1`}
+                                        src={`${videoURL(data?.BusinessMode.FeaturedVideo)}?autoplay=1&mute=1`}
                                     />
                                 :
                                     <div className={classNames(c.videoOuter)} onClick={()=>setPlay(true)}>
@@ -195,7 +263,19 @@ const Theme2 = ({id, data, ...props}) => {
                             <div className={classNames(c.dwText)}>{"Tap to view/navigate on maps"}</div>
                         </div>
 
-                        <div style={{ width:362, height:141, marginTop:10, borderRadius:8, backgroundColor: 'gray' }} />
+                        <div className={classNames(c.map)}>
+                            <GoogleMapReact
+                                bootstrapURLKeys={{
+                                    key: "AIzaSyAlnnM9sOIHkH1Ifu6J6BzKJREXShuEH6s",
+                                    language: "en",
+                                    region: "US"
+                                }}
+                                defaultCenter={{ lat: 51.506, lng: -0.169 }}
+                                defaultZoom={15}
+                                >
+
+                            </GoogleMapReact>
+                        </div>
                         
                         <div className={classNames(c.bottomApp)}>
                             <p className={classNames(c.thanks)}>Thank You!</p>
