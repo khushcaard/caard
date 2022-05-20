@@ -139,7 +139,7 @@ const Theme2Bg = ({id, data, ...props}) => {
                             (data?.SocialLinks && Array.isArray(data.SocialLinks) && ((data.SocialLinks).length > 3) ) &&
                             <div className="row justify-content-center mt-3">
                                 {   
-                                    data.SocialLinks.filter(element => element.Name === 'Email' || element.Name === 'Call' || element.Name === 'Gmail').map((item)=>{
+                                    data.SocialLinks.filter(element => element.Name === 'Email' || element.Name === 'Call' || element.Name === 'Gmail' | element.Name === 'Facebook').map((item)=>{
                                         if (item.isActive === true) {
                                             return (
                                                 <div key={item?.Name} className={classNames(c.cursorPointer,"col-auto mt-4")}>
@@ -160,7 +160,7 @@ const Theme2Bg = ({id, data, ...props}) => {
                                     })
                                 }
                                 {   
-                                    data.SocialLinks.filter(element => element.Name != 'Email' && element.Name != 'Call' && element.Name != 'Gmail').slice(3).map((item)=>{
+                                    data.SocialLinks.filter(element => element.Name !== 'Email' && element.Name !== 'Call' && element.Name !== 'Gmail' && element.Name !== 'Facebook').slice(3).map((item)=>{
                                         if (item.isActive === true) {
                                             return (
                                                 <div key={item?.Name} className={classNames(c.cursorPointer,"col-auto mt-4")}>

@@ -53,7 +53,7 @@ const Theme1 = ({id, data, ...props}) => {
         
                         
                         {
-                            data.SocialLinks.filter(element => element.Name !== 'Email' && element.Name !== 'Call').map((item)=>{
+                            data.SocialLinks.filter(element => element.Name !== 'Email' && element.Name !== 'Call' && element.Name !== 'Gmail' && element.Name !== 'Facebook').map((item)=>{
                                         if (item.isActive === true) { 
                                             return (
                                                 <center className={classNames("mt-1")} key={item?.Order}>
@@ -68,7 +68,7 @@ const Theme1 = ({id, data, ...props}) => {
                                     })
                         }
                         {
-                            data.SocialLinks.filter(element => element.Name === 'Email' || element.Name === 'Call' || element.Name === 'Gmail').map((item)=>{
+                            data.SocialLinks.filter(element => element.Name === 'Email' || element.Name === 'Call' || element.Name === 'Gmail' || element.Name === 'Facebook').map((item)=>{
                                 if (item.isActive === true) { 
                                     return (
                                         <center className={classNames("mt-1")} key={item?.Order}>

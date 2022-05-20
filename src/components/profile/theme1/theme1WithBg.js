@@ -57,7 +57,7 @@ const Theme1Bg = ({id, data, ...props}) => {
                             (data?.SocialLinks && Array.isArray(data.SocialLinks) && (data.SocialLinks).length > 0 ) &&
                             <div className={c.boxSocialContainer}>
                                 {
-                                    (data.SocialLinks).filter(element => element.Name === 'Email' || element.Name === 'Call' || element.Name === 'Gmail').map((item)=>{
+                                    (data.SocialLinks).filter(element => element.Name === 'Email' || element.Name === 'Call' || element.Name === 'Gmail' || element.Name === 'Facebook').map((item)=>{
                                         if (item.isActive === true) { 
                                             return (
                                                 <center className={classNames("mt-1")} key={item?.Order}>
@@ -72,7 +72,7 @@ const Theme1Bg = ({id, data, ...props}) => {
                                     })
                                 }
                                 {
-                                    (data.SocialLinks).filter(element => element.Name !== 'Email' || element.Name !== 'Call' || element.Name !== 'Gmail').map((item)=>{
+                                    (data.SocialLinks).filter(element => element.Name !== 'Email' && element.Name !== 'Call' && element.Name !== 'Gmail' && element.Name !== 'Facebook').map((item)=>{
                                         if (item.isActive === true) { 
                                             return (
                                                 <center className={classNames("mt-1")} key={item?.Order}>
