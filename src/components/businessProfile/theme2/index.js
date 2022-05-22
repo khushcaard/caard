@@ -78,13 +78,36 @@ const Theme2 = ({id, data, ...props}) => {
                     <div className={classNames(c.boxImage)}>
                             <Carousel
                                 renderArrowPrev={renderArrow("prev")}
-                                renderArrowNext={renderArrow("next")}
+                                renderArrowNext={renderArrow("next")}                            
+                                renderIndicator={(
+                                    onClickHandler, isSelected,index, label
+                                  ) => {
+                                      if(isSelected) {
+                                          return (
+                                            <div style={{ position: 'absolute', display: 'flex', flexDirection: 'row', alignItems: 'baseline', left: 16, top: -135 }} >
+                                                <svg style={{ marginRight: 8}} width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="4" cy="4" r="4" fill="white" fillOpacity={index-0.5}/>
+                                                </svg>
+                                                <svg style={{ marginRight: 8}} width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="4" cy="4" r="4" fill="white" fill-opacity={index-0.5}  />
+                                                </svg>
+                                                <svg style={{ marginRight: 8}} width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="4" cy="4" r="4" fill="white" fill-opacity={index-0.5}  />
+                                                </svg>
+                                                <svg style={{ marginRight: 8}} width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="4" cy="4" r="4" fill="white" fill-opacity={index-0.5}  />
+                                                </svg>
+                                                <p style={{ color:"#fff" }}>{index + 1}/4</p>
+                                            </div>
+                                          )
+                                      }
+                                  }}
                                 autoPlay={true}
-                                interval={1000}
+                                interval={10000}
                                 infiniteLoop={true}
                                 showArrows={true} showStatus={false}
-                                showIndicators={false} showThumbs={false}>
-                                {JSON.parse(data.BusinessMode.HoveringImages).map(element => (
+                                showIndicators={true} showThumbs={false}>
+                                {JSON.parse(data.BusinessMode.PersonalInfo.CoverImage).map(element => (
                                     <img className={classNames(c.profileBgImage)} src={data?.PersonalInfo?.CoverImageLocation ? `data:image/png;base64,${data?.PersonalInfo?.CoverImageLocation}` : element.URL} alt="bg-img"/>
                                 ))}
                         </Carousel>  
@@ -109,7 +132,7 @@ const Theme2 = ({id, data, ...props}) => {
                                 <AboutArrowIcon />
                             </div>
                             <div className={classNames(c.text)}>
-                                {data?.PersonalInfo?.Bio || "Update your BIO"}
+                                {data?.BusinessMode.PersonalInfo?.Bio || "Update your BIO"}
                             </div>
                         </div>
 
